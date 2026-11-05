@@ -26,3 +26,11 @@ Deux possibilités sont envisagées :
 - Avant chaque `push`, il faut effectuer un `pull` pour récupérer les dernières modifications et éviter les conflits.
 
 **Décision à prendre collectivement avant de commencer le développement.**
+
+## Environnemenrt virtuel ##
+//création (une seule fois, c'est fait)
+ python3.12 -m venv .venv
+ //activation (avant de travailler, à chaque fois)
+source .venv/bin/activate
+//les paquets à installer sont à noter dans requirements.txt
+python -m pip freeze >> requirements.txt
