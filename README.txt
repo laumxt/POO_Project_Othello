@@ -28,9 +28,12 @@ Deux possibilités sont envisagées :
 **Décision à prendre collectivement avant de commencer le développement.**
 
 ## Environnemenrt virtuel ##
-//création (une seule fois, c'est fait)
+//création
  python3.12 -m venv .venv
  //activation (avant de travailler, à chaque fois)
 source .venv/bin/activate
 //les paquets à installer sont à noter dans requirements.txt
+// création ou maj des requirements
 python -m pip freeze >> requirements.txt
+// installation des dépendances
+python -m pip install -r requirements.txt
