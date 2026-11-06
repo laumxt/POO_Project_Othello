@@ -43,7 +43,7 @@ class Input:
             and len(coordonnees) == 2 
             and int(coordonnees[0])>=0 and int(coordonnees[1])>=0 
             and int(coordonnees[0])<=7 and int(coordonnees[1])<=7
-            and monboard.move_jouable(coordonnees, monjoueur)
+            and monboard.move_jouable(monboard,coordonnees[0], coordonnees[1], monjoueur.color)
         ):
             self._abscisse = int(coordonnees[0])
             self._ordonnee = int(coordonnees[1])
