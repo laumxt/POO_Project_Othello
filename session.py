@@ -27,3 +27,5 @@ class Session:
             self.tour_joueur = (
                 Color.Blanc if blanc_cases_jouables else Color.Noir
             )
+
+    
