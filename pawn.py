@@ -1,8 +1,4 @@
-from enum import Enum
-
-class Color(Enum):
-    Blanc = 0
-    Noir = 1
+from color import Color
 
 class Pawn:
     def __init__(self, arg_color):
