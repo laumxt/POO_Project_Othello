@@ -1,3 +1,5 @@
+from typing import Optional
+
 from board import Board
 from color import Color
 
@@ -27,3 +29,26 @@ class Session:
             self.tour_joueur = (
                 Color.Blanc if blanc_cases_jouables else Color.Noir
             )
+
+    def compter_pions(self) -> dict[Color, int]:
+        scores = {Color.Blanc: 0, Color.Noir: 0}
+        for ligne in self.board.cases:
+            for case in ligne:
+                pion = case.get_contenu()
+                if pion is not None:
+                    scores[pion.color] += 1
+        return scores
+
+    def gagnant(self) -> Optional[Color]:
+        if not self.jeu_termine:
+            return None
+
+        scores = self.compter_pions()
+        score_blanc = scores[Color.Blanc]
+        score_noir = scores[Color.Noir]
+
+        if score_blanc > score_noir:
+            return Color.Blanc
+        if score_noir > score_blanc:
+            return Color.Noir
+        return None
