@@ -34,6 +34,6 @@ Deux possibilités sont envisagées :
 source .venv/bin/activate
 //les paquets à installer sont à noter dans requirements.txt
 // création ou mise a jour des requirements
-python -m pip freeze >> requirements.txt
+python -m pip freeze > requirements.txt
 // installation des dépendances
 python -m pip install -r requirements.txt
