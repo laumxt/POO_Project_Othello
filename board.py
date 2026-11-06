@@ -1,4 +1,5 @@
 from case import Case
+from color import Color
 
 
 class Board:
@@ -25,14 +26,23 @@ class Board:
                 if case.is_empty():
                     ligne += "|  "
                 else:
-                    ligne += "|" + case.get_contenu().color[0].upper()
+                    ligne += "|" + case.get_contenu().name[0].upper()
 
             print(ligne + "|")
         print(" "+"+--" * self.size + "+")
         print("  " + "  ".join(str(i + 1) for i in range(self.size)))
-    
-    def move_jouable():
-        pass    
+    def case_candidates(self, color):
+
+        directions = [(-1, -1),(-1, 0),(-1, 1),(0, -1),(0, 1),(1, -1),(1, 0),(1, 1)]
+
+        candidates=[]
+
+
+        pass
+    def move_jouable(self, row, column, color):
+        if row < 0 or row >= self.size or column < 0 or column >= self.size:
+            return False
+        
     def cases_jouables():
         pass
     def appliquer_flips():
