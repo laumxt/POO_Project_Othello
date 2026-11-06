@@ -20,10 +20,3 @@ class Pawn:
             self._color = Color.Noir
         else:
             self._color = Color.Blanc
-
-
-test_pawn = Pawn(Color.Blanc)
-print(f"Couleur initiale du pion : {test_pawn.color}")
-print(f"Couleur initiale du pion : {test_pawn.color.name}")
-test_pawn.flip()
-print(f"Couleur après le flip : {test_pawn.color.name}")
