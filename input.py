@@ -5,18 +5,21 @@ from pawn import Pawn
 
 class Input:
 
-    abscisse: int = 0
-    ordonnee: int = 0
+    def __init__(self, monboard, monjoueur, mon_abscisse=None, mon_ordonnee=None):
+        self._board = monboard
+        self._joueur = monjoueur
+        if mon_abscisse is not None and mon_ordonnee is not None:
+            self.input = (mon_abscisse, mon_ordonnee)
+        else:
+            self._abscisse = None
+            self._ordonnee = None
 
-    def __init__(self, mon_abscisse, mon_ordonnee):
-        self._abscisse = mon_abscisse
-        self._ordonnee = mon_ordonnee
-
+#saisie des coordonnées par l'utilisateur 
     def demander_coordonnees(self):
         while True:
             try:
                 saisie = input("Entre les coordonnées (x,y) : ")
-                coordonnees = saisie.split(",") 
+                coordonnees = [c.strip() for c in saisie.split(",")]
                 if len(coordonnees) != 2:
                     raise ValueError("Veuillez entrer deux coordonnées séparées par une virgule.")
                 elif not all(c.isdigit() for c in coordonnees):
@@ -27,29 +30,37 @@ class Input:
                     # Appelle le setter, met à jour l'attribut input avec un tuple
                     # permet de lancer les vérifications du setter pour s'assurer que les coordonnées sont valides
                     self.input = (int(coordonnees[0]), int(coordonnees[1]))  
-                    return self 
-            except ValueError as erreur:
+                    return self
+            except (ValueError, TypeError) as erreur:
                 print(erreur)
     
         
 
     def get_input(self):
         return self._abscisse, self._ordonnee
+
     
-    def set_input(self, coordonnees, monboard: Board, monjoueur:Player): 
+    #le setter vérifie que les coordonnées sont valides et que le coup est jouable pour le joueur
+    def set_input(self, coordonnees: tuple): 
+        monboard = self._board 
+        monjoueur = self._joueur
         if(
             isinstance(coordonnees, tuple) 
-            and isinstance(coordonnees[0], int) and isinstance(coordonnees[1], int) 
             and len(coordonnees) == 2 
+            and isinstance(coordonnees[0], int) and isinstance(coordonnees[1], int) 
             and int(coordonnees[0])>=0 and int(coordonnees[1])>=0 
             and int(coordonnees[0])<=7 and int(coordonnees[1])<=7
-            and monboard.move_jouable(monboard,coordonnees[0], coordonnees[1], monjoueur.color)
         ):
-            self._abscisse = int(coordonnees[0])
-            self._ordonnee = int(coordonnees[1])
+            if (monboard.move_jouable(coordonnees[0], coordonnees[1], monjoueur.color)):
+                self._abscisse = int(coordonnees[0])
+                self._ordonnee = int(coordonnees[1])
+            else:
+                raise ValueError("Le coup n'est pas jouable pour le joueur de couleur " + monjoueur.color)
+        
         else: raise TypeError("Les coordonnées doivent être un tuple de deux entiers entre 0 et 7.")
 
-    input = property(get_input, set_input) #on ne peut lire ou modifier input que depuis get et set
+    #on ne peut lire ou modifier input que depuis get et set
+    input = property(get_input, set_input) 
 
 
 
