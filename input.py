@@ -1,8 +1,5 @@
 from player import Player
 from board import Board
-from case import Case
-from pawn import Pawn
-
 class Input:
 
     def __init__(self, monboard, monjoueur, mon_abscisse=None, mon_ordonnee=None):
