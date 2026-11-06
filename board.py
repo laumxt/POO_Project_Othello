@@ -1,4 +1,5 @@
 from case import Case
+from color import Color
 
 
 class Board:
@@ -31,10 +32,3 @@ class Board:
         print(" "+"+--" * self.size + "+")
         print("  " + "  ".join(str(i + 1) for i in range(self.size)))
     
-    def move_jouable():
-        pass    
-    def cases_jouables():
-        pass
-    def appliquer_flips():
-        pass
-
