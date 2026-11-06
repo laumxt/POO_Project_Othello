@@ -1,5 +1,6 @@
 from case import Case
 from color import Color
+from pawn import Pawn
 
 
 class Board:
@@ -104,8 +105,6 @@ class Board:
 
     def appliquer_flips(self, row, column, color):
 
-        
-
         for dr, dc in self.DIRECTIONS:
 
             r = row + dr
@@ -133,4 +132,14 @@ class Board:
 
                 r += dr
                 c += dc
+
+    def jouer(self, row, column, color):
+        if not self.move_jouable(row,column,color):
+            return False
+
+        self.get_case(row, column).place_pawn(Pawn(color))
+
+        self.appliquer_flips(row,column,color)
+
+  
 
