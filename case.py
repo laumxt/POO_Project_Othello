@@ -1,1 +1,3 @@
-print("+--+\n|  |\n+--+")
+class Case:
+    def contenu():
+        pass
