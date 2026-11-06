@@ -1,4 +1,5 @@
-from POO.Othello import board, session
+from board import Board 
+from session import Session
 
 
 class Player:
@@ -7,9 +8,15 @@ class Player:
         self.mon_tour = mon_tour
 
     def tour(self):
-        if self.mon_tour == session.Session.tour_joueur:
-            if board.Board.move_jouable(self.color):
+        if self.mon_tour == Session.tour_joueur:
+            if Board.move_jouable(self.color):
                 self.mon_tour = True
             else:
                 self.mon_tour = False
-        
+
+#test 
+player=Player("black", True)
+print(player.color)
+Session.tour_joueur = True
+Board.move_jouable = lambda color: True  # Mocking the method for testing
+print(player.mon_tour)
