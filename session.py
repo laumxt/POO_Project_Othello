@@ -14,8 +14,8 @@ class Session:
         if self.jeu_termine:
             return
 
-        blanc_cases_jouables = bool(self.board.cases_jouables(Color.Blanc))
-        noir_cases_jouables = bool(self.board.cases_jouables(Color.Noir))
+        blanc_cases_jouables = self.board.cases_jouables(Color.Blanc)
+        noir_cases_jouables = self.board.cases_jouables(Color.Noir)
 
         if not blanc_cases_jouables and not noir_cases_jouables:
             self.jeu_termine = True
