@@ -43,7 +43,7 @@ def main():
         x,y = mon_input.get_input()
 
         #jouer le coup
-        mon_board.jouer(x,y, couleur_tour_courant)
+        mon_board.placer_pion(x,y, couleur_tour_courant)
 
         #affichage du plateau demandé à board
         mon_board.display()
