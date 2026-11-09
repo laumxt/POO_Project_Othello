@@ -26,7 +26,7 @@ class Input:
                 else:
                     # Appelle le setter, met à jour l'attribut input avec un tuple
                     # permet de lancer les vérifications du setter pour s'assurer que les coordonnées sont valides
-                    self.input = (int(coordonnees[0]), int(coordonnees[1]))  
+                    self.input = (int(coordonnees[1]), int(coordonnees[0]))  
                     return self
             except (ValueError, TypeError) as erreur:
                 print(erreur)

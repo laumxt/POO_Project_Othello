@@ -28,7 +28,6 @@ def main():
 
         #recuperation de la couleur du joueur dont c'est le tour
         couleur_tour_courant = ma_session.tour_joueur
-        print("C'est le tour du joueur de couleur :", couleur_tour_courant)
 
         #affichage du plateau demandé à board
         mon_board.display()
@@ -37,13 +36,14 @@ def main():
         mon_joueur = Player(couleur_tour_courant, ma_session)
 
         #recuperation des coordonnées du coup à jouer
+        print("C'est le tour du joueur de couleur :", couleur_tour_courant)
         mon_input = Input(mon_board, mon_joueur, mon_abscisse=None, mon_ordonnee=None)
 
         mon_input.demander_coordonnees()
         x,y = mon_input.get_input()
 
         #jouer le coup
-        mon_board.jouer(y,x, couleur_tour_courant)
+        mon_board.jouer(x,y, couleur_tour_courant)
 
         #affichage du plateau demandé à board
         mon_board.display()
