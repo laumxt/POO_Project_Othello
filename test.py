@@ -19,7 +19,6 @@ board.get_case(3, 3).place_pawn(Pawn(Color.Blanc))
 board.get_case(3, 4).place_pawn(Pawn(Color.Noir))
 
 board.display()
-
-print("Jugada:", board.jouer(3, 5, Color.Blanc))
+board.jouer(3, 5, Color.Blanc)
 
 board.display()
