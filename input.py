@@ -52,7 +52,7 @@ class Input:
                 self._abscisse = int(coordonnees[0])
                 self._ordonnee = int(coordonnees[1])
             else:
-                raise ValueError("Le coup n'est pas jouable pour le joueur de couleur " + monjoueur.color)
+                raise ValueError("Le coup n'est pas jouable pour le joueur de couleur " + monjoueur.color.name)
         
         else: raise TypeError("Les coordonnées doivent être un tuple de deux entiers entre 0 et 7.")
 
