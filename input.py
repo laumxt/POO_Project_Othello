@@ -15,7 +15,7 @@ class Input:
     def demander_coordonnees(self):
         while True:
             try:
-                saisie = input("Entre les coordonnées (x,y) : ")
+                saisie = input("Entre les coordonnées x,y : ")
                 coordonnees = [c.strip() for c in saisie.split(",")]
                 if len(coordonnees) != 2:
                     raise ValueError("Veuillez entrer deux coordonnées séparées par une virgule.")
