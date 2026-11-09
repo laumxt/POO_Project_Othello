@@ -7,7 +7,7 @@ from color import Color
 class Session:
     def __init__(self, board: Board):
         self.board = board
-        self.tour_joueur = Color.Blanc
+        self.tour_joueur = Color.Noir
         self.jeu_termine = False
 
     def mettre_a_jour_tour(self) -> None:
