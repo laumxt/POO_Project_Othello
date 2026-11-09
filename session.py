@@ -5,8 +5,12 @@ from color import Color
 
 
 class Session:
-    def __init__(self, board: Board):
+    def __init__(self, board: Board, joueur_noir, joueur_blanc):
         self.board = board
+        self.joueurs = {
+            Color.Noir: joueur_noir,
+            Color.Blanc: joueur_blanc
+        }
         self.tour_joueur = Color.Noir
         self.jeu_termine = False
 
