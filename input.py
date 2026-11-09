@@ -15,7 +15,7 @@ class Input:
     def demander_coordonnees(self):
         while True:
             try:
-                saisie = input("Entre les coordonnées x,y : ")
+                saisie = input("Entre les coordonnées row,column : ")
                 coordonnees = [c.strip() for c in saisie.split(",")]
                 if len(coordonnees) != 2:
                     raise ValueError("Veuillez entrer deux coordonnées séparées par une virgule.")
@@ -26,7 +26,7 @@ class Input:
                 else:
                     # Appelle le setter, met à jour l'attribut input avec un tuple
                     # permet de lancer les vérifications du setter pour s'assurer que les coordonnées sont valides
-                    self.input = (int(coordonnees[1]), int(coordonnees[0]))  
+                    self.input = (int(coordonnees[0]), int(coordonnees[1]))  
                     return self
             except (ValueError, TypeError) as erreur:
                 print(erreur)
