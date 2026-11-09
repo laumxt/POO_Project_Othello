@@ -21,6 +21,8 @@ def main():
 #création de la session
     ma_session = Session(mon_board)
 
+#affichage du plateau demandé à board
+    mon_board.display()
    
 
 #boucle de jeu
@@ -29,9 +31,7 @@ def main():
         #recuperation de la couleur du joueur dont c'est le tour
         couleur_tour_courant = ma_session.tour_joueur
 
-        #affichage du plateau demandé à board
-        mon_board.display()
-
+       
         #creation dun joueur du tour courant
         mon_joueur = Player(couleur_tour_courant)
 
