@@ -33,7 +33,7 @@ def main():
         mon_board.display()
 
         #creation dun joueur du tour courant
-        mon_joueur = Player(couleur_tour_courant, ma_session)
+        mon_joueur = Player(couleur_tour_courant)
 
         #recuperation des coordonnées du coup à jouer
         print("C'est le tour du joueur de couleur :", couleur_tour_courant)

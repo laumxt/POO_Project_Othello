@@ -52,3 +52,10 @@ class Session:
         if score_noir > score_blanc:
             return Color.Noir
         return None
+
+    def tour(self):
+            if self.color == self.tour_joueur:
+                if self.board.move_jouable(self.color):
+                    self.mon_tour = True
+                else:
+                    self.mon_tour = False

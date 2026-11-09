@@ -133,7 +133,7 @@ class Board:
                 r += dr
                 c += dc
 
-    def jouer(self, row, column, color):
+    def placer_pion(self, row, column, color):
         if not self.move_jouable(row,column,color):
             return False
 
