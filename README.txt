@@ -33,7 +33,7 @@ Deux possibilités sont envisagées :
  //activation (avant de travailler, à chaque fois)
 source .venv/bin/activate
 //les paquets à installer sont à noter dans requirements.txt
-// création ou maj des requirements
+// création ou mise a jour des requirements
 python -m pip freeze > requirements.txt
 // installation des dépendances
 python -m pip install -r requirements.txt
